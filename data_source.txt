@@ -1,0 +1,14 @@
+
+hospitals
+https://docs.google.com/spreadsheets/d/1582qorXUHMrZ2GGQR6IEP7EnHyOCoLogvGlp2qd9soU/edit?gid=340024464#gid=340024464
+
+universities
+https://docs.google.com/spreadsheets/d/1anNAnfFT4MqmxkcFgpO_mzfTVj6xQPOfk4hLpyfnyzA/edit?gid=382443240#gid=382443240
+
+accessing the api
+https://docs.google.com/document/d/1bKFDlgjuuPWQxrQCOaNSn9Wdpa2CfumRj605-VJ2lLs/edit?tab=t.0
+
+
+postman: api
+https://ice-devs.postman.co/workspace/Ice-devs-Workspace~61062deb-ed69-4591-8d15-c37abe77aa49/request/39616956-bc1e2240-7368-42a2-a967-a780e7735865?tab=body
+https://ice-devs.postman.co/workspace/Ice-devs-Workspace~61062deb-ed69-4591-8d15-c37abe77aa49/documentation/39616956-8a6339c6-fe1f-49e6-9203-e70992efa520?entity=request-677908cb-21c5-427a-b00d-def62fd1a2d4

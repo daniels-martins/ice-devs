@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Maps Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div class="map-container mb-10">
+        <iframe class="w-full  h-[80vh]"
+            src="https://www.google.com/maps/d/embed?mid=14nQBBu5lOFfkbrCRM17P54FjQ4oySXo&ehbc=2E312F"></iframe>
+    </div>
+
+    <div class="data-manipulation-container flex p-5 justify-between mb-10">
+        <div class="">
+            <h1>Generate grid code for a Hospital</h1>
+            <select id="hospital-select" class="p-3">
+                <option value="">Select a hospital</option>
+            </select>
+            <div id="hospital-grid-code-container"></div>
+
+        </div>
+
+        <div class="">
+            <h1>Generate grid code for a University</h1>
+            <select id="university-select" class="p-3">
+                <option value="">Select a university</option>
+            </select>
+            <div id="university-grid-code-container"></div>
+        </div>
+    </div>
+    <div class="m-10">
+
+        <div id="data"></div>
+
+        <!-- <button id="fetchData">Fetch Data</button> -->
+         <!-- looking up an already stored grid code in local storage -->
+        <input type="text"  class="border border-black p-2" id="searchInput" placeholder="Enter value to search">
+        <button id="searchButton" class=" rounded cursor-pointer px-5 py-2 bg-green-500 text-white">Search GridCode</button>
+        <div id="searchResult" class="my-5"></div>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
