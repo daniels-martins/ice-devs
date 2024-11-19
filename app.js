@@ -10,11 +10,10 @@ const hospitalSelectElement = document.getElementById('hospital-select');
 const universitySelectElement = document.getElementById('university-select');
 const countrySelectElement = document.getElementById('country-select');
 
-// handle default data for universities dropdown
-universities.forEach(university => fn.populateUniversities(university, universitySelectElement));
+// handle default data for universities dropdown : uncomment later for universities
+// universities.forEach(university => fn.populateUniversities(university, universitySelectElement));
 // handle default data for hospitals dropdown
 hospitals.forEach(hospital => fn.populateHospitals(hospital, hospitalSelectElement));
-
 // handle default data for Countries dropdown
 countries.forEach(country => fn.populateCountries(country, countrySelectElement));
 
