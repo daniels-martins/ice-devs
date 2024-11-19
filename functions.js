@@ -69,7 +69,6 @@ export function getLatLongDeviation(latitude) {
 }
 
 
-
 //   // Test cases
 //   console.log(getLatA("-2.900283928392")); // Output: -2.900283928394
 //   console.log(getLatA("-2.900283928399")); // Output: -2.900283928401
@@ -146,6 +145,14 @@ export function getGridCodeCategory(searchTerm = null) {
     return foundCategory.categoryId ?? null; //null coalescing
 }
 
+
+
+
+
+
+
+
+// Routes 
 export function routeToSaveGridCode() {
     return '/gridcode/api/store';
 }
@@ -155,6 +162,10 @@ export function routeToVerifyGridCode(gridCode = 'aaaa-ahgumc', countryCode = 'i
 
 export function routeToSearchGridCode(){
     return '/external/api/search-gridcodes';
+}
+
+export function routeToGenerateGridCodeDistance(params) {
+    return '/external/api/calculate-distance';
 }
 export function routeToGenerateGridCode() {
     return '/gridcode/api/generate'

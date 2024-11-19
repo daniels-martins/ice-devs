@@ -129,6 +129,35 @@ api stored grid code response
 
 
 
+//grid distance calculation from api
+{
+    "code": 200,
+    "message": "Distance calculated successful",
+    "data": {
+        "sourceGridCode": {
+            "gridCode": "aaaa-ahgumc",
+            "lat": "23.011955800000003",
+            "lng": "72.5226441",
+            "country": "India",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "address": "H610 Titanium city centre 100ft Road, 100 Feet Anand Nagar Rd, behind Iocl petrol pump, Jodhpur Village, Ahmedabad, Gujarat 380015, India"
+        },
+        "destinationGridCode": {
+            "gridCode": "aaaa-ahgvab",
+            "lat": "11.93536",
+            "lng": "7.06518",
+            "country": "Nigeria",
+            "city": "Tsafe",
+            "state": "Zamfara",
+            "address": "W3P8+43 Yankuzau, Nigeria"
+        },
+        "distanceKm": 6998.8,
+        "estimatedTravelTime": "6999 mins"
+    }
+}
+
+
 
 
 

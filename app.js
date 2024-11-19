@@ -9,6 +9,8 @@ import * as listener from './listeners.js';
 const hospitalSelectElement = document.getElementById('hospital-select');
 const universitySelectElement = document.getElementById('university-select');
 const countrySelectElement = document.getElementById('country-select');
+const sourceCountrySelectElement = document.getElementById('sourceCountry');
+const destinationCountrySelectElement = document.getElementById('destinationCountry');
 
 // handle default data for universities dropdown : uncomment later for universities
 // universities.forEach(university => fn.populateUniversities(university, universitySelectElement));
@@ -16,6 +18,8 @@ const countrySelectElement = document.getElementById('country-select');
 hospitals.forEach(hospital => fn.populateHospitals(hospital, hospitalSelectElement));
 // handle default data for Countries dropdown
 countries.forEach(country => fn.populateCountries(country, countrySelectElement));
+countries.forEach(country => fn.populateCountries(country, sourceCountrySelectElement));
+countries.forEach(country => fn.populateCountries(country, destinationCountrySelectElement));
 
 
 
@@ -30,14 +34,23 @@ hospitalSelectElement.addEventListener('change', function () {
     handleGridCodeGenerationForSelectedHospital(selectedLocation);
 });
 
+// Register Event listeners
+
 // Event listener for the gridcode search button
 document.getElementById('searchButton')
     .addEventListener('click', () => listener.handleClickEventOnSearchButton());
 
 
+// Enent listener for distance generation between two grid codes
+document.getElementById('gridCodeDistanceGenerateBtn')
+    .addEventListener('click', () => listener.handleGenerateDistanceButton());
+
+
 // Event listener for the gridcode validate button
 document.getElementById('searchButtonForGridCodeValidation')
     .addEventListener('click', () => listener.handleValidationOfGridCode());
+
+// event for distance generation
 
 
 
@@ -119,9 +132,9 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
             long: selectedLocation.getAttribute('long'),
             lat: selectedLocation.getAttribute('lat'),
         };
-        const hospitalGridCodeContainer = document.getElementById('hospital-grid-code-container');
+        const hospitalGridCodeContainer = document.getElementById('hospital-generate-grid-code-results-container');
         // show the user that we are processing the request
-        hospitalGridCodeContainer.innerHTML = 'Processing...';
+        hospitalGridCodeContainer.innerHTML = 'Processing request to Generate Grid code. Please wait... ';
         // return 0;
         axios.post(baseUrl + fn.routeToGenerateGridCode(), data, { headers: headers })
             .then(function (response) {
