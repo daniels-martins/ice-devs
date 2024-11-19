@@ -58,7 +58,7 @@ export function deleteUnmatchedKeysInLocalStorage(keysToKeep) {
 }
 
 export function validateGridCodeFromApi(gridcode, countryCode = 'NG') {
-    let validationResultElement = document.getElementById('validationResult');
+    let hospitalValidationResultElement = document.getElementById('hospitalValidationResult');
 
     // Make an API request using the selected location (gridcode)
     const baseUrl = 'https://gcorea.gridweb.net';
@@ -77,7 +77,7 @@ export function validateGridCodeFromApi(gridcode, countryCode = 'NG') {
                 let verifiedValidity = resBody.data.isValid;
 
                 // get a container to display the formatted validation message
-                validationResultElement.innerHTML =
+                hospitalValidationResultElement.innerHTML =
                     `Success: ${verifiedGridCode} for ${verifiedcountryCode} is valid 👍`;
             }
         })
@@ -146,24 +146,12 @@ export function getLatLongDeviation(latitude) {
 export function populateHospitals(hospital, hospitalSelectElement) {
     const option = document.createElement('option');
     option.value = hospital["ADDRESS"]; // Use LOCATION for API request
+    option.textContent = hospital["NAME"];
     option.setAttribute('long', hospital['LONGITUDE'])
     option.setAttribute('lat', hospital['LATITUDE'])
-    option.textContent = hospital["NAME"];
     hospitalSelectElement.appendChild(option);
 }
 
-
-export function populateCountries(country, countrySelectElement) {
-    const option = document.createElement('option');
-    option.value = country["countryCode"]; // eg 'NG' or 'RW'
-    option.textContent = country["country"]; //country name
-    countrySelectElement.appendChild(option);
-}
-
-export function getCountryCode(country, data) {
-    const foundCountry = data.find(item => item.country === country);
-    return foundCountry ? foundCountry.countryCode : null; // Return null if not found
-}
 /**
   * handle universities dropdown 
   * 
@@ -176,8 +164,23 @@ export function populateUniversities(university, universitySelectElement) {
     const option = document.createElement('option');
     option.value = university["ADDRESS"]; // Use LOCATION for API request
     option.textContent = university["NAME"];
+    option.setAttribute('long', university['LONGITUDE'])
+    option.setAttribute('lat', university['LATITUDE'])
     universitySelectElement.appendChild(option);
 }
+
+export function populateCountries(country, countrySelectElement) {
+    const option = document.createElement('option');
+    option.value = country["countryCode"]; // eg 'NG' or 'RW'
+    option.textContent = country["country"]; //country name
+    countrySelectElement.appendChild(option);
+}
+
+export function getCountryCode(country, data) {
+    const foundCountry = data.find(item => item.country === country);
+    return foundCountry ? foundCountry.countryCode : null; // Return null if not found
+}
+
 
 export function searchLocalStorage(value) {
     const results = [];

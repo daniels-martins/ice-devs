@@ -23,9 +23,9 @@
 
         <!-- gridcode generation container -->
         <h2 class="px-5 text-2xl font-bold">Generate Grid Code</h2>
-        <div class="data-manipulation-container flex p-5 justify-between mb-10">
+        <div class="data-manipulation-container lg:flex p-5 w-full mb-10">
             <!-- generate gridcode for hospital -->
-            <div class="">
+            <div class="col w-full">
                 <h1>Generate grid code for a Hospital</h1>
                 <select id="hospital-select" class="p-3 my-5">
                     <option value="">Select a hospital</option>
@@ -34,90 +34,189 @@
             </div>
 
             <!-- generate gridcode for university goto app.js and uncomment the populateUniversities and the event listener-->
-            <!-- <div class="">
+            <div class="col w-full">
                 <h1>Generate grid code for a University</h1>
-                <select id="university-select" class="p-3">
+                <select id="university-select" class="p-3 my-5">
                     <option value="">Select a university</option>
                 </select>
-                <div id="university-grid-code-container"></div>
-            </div> -->
+                <div id="university-generate-grid-code-results-container"></div>
+            </div>
         </div>
 
         <!-- search gridcode container-->
         <div class="m-10">
-            <h2 class="py-5  text-2xl font-bold">Search for Grid Code</h2>
+            <div class="lg:flex w-full p-5  mb-10">
+                <!-- hospitals -->
+                <div class="search-gridcode-for-hospitals col w-full">
+                    <h2 class="py-5  text-2xl font-bold">Search for Grid Code
+                    </h2>
 
-            <div id="data"></div>
+                    <div id="data"></div>
 
-            <!-- <button id="fetchData">Fetch Data</button> -->
-            <!-- looking up an already stored grid code in local storage -->
-            <input type="text" class="block my-3  border border-black p-2"
-                id="searchInput" placeholder="Enter gridcode to search for">
-            <button id="searchButton"
-                class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Search
-                GridCode</button>
-            <div id="searchResultForGridCode" class="my-5"></div>
+                    <!-- <button id="fetchData">Fetch Data</button> -->
+                    <!-- looking up an already stored grid code in local storage -->
+                    <input type="text"
+                        class="block my-3  border border-black p-2"
+                        id="searchInputForHospitals"
+                        placeholder="Enter gridcode to search for">
+                    <button id="searchButtonForHospitals"
+                        class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Search
+                        GridCode</button>
+                    <div id="searchResultForHospitalGridCode" class="my-5">
+                    </div>
+                </div>
+
+                <!-- universities -->
+                <div class="search-gridcode-for-universities col w-full">
+                    <h2 class="py-5  text-2xl font-bold">Search for Grid Code
+                    </h2>
+
+                    <div id="data"></div>
+
+                    <!-- <button id="fetchData">Fetch Data</button> -->
+                    <!-- looking up an already stored grid code in local storage -->
+                    <input type="text"
+                        class="block my-3  border border-black p-2"
+                        id="searchInputForUniversities"
+                        placeholder="Enter gridcode to search for">
+                    <button id="searchButtonForUniversities"
+                        class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Search
+                        GridCode</button>
+                    <div id="searchResultForUniversityGridCode" class="my-5">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
 
         <!-- validate gridcode container-->
-        <div class="m-10">
-            <h2 class="py-5  text-2xl font-bold">Validate Grid Code</h2>
+        <div class="m-10 lg:flex w-full">
 
-            <input type="text" class=" block border border-black p-2"
-                id="searchInputForGridCodeValidation"
-                placeholder="Enter Grid code to validate" />
-            <select class="p-3 block my-3"
-                name="selectedCountryForGridCodeValidation" id="country-select">
-                <option value="">Select a nation</option>
-            </select>
-            <button id="searchButtonForGridCodeValidation"
-                class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Validate
-                GridCode</button>
-            <div id="validationResult" class="my-5"></div>
+            <!-- for hospitals -->
+            <div class="validate-hospital-grid-code-container col w-full">
+                <h2 class="py-5  text-2xl font-bold">Validate Grid Code</h2>
+
+                <input type="text" class=" block border border-black p-2"
+                    id="searchInputForHospitalGridCodeValidation"
+                    placeholder="Enter Grid code to validate" />
+                <select class="p-3 block my-3"
+                    name="selectedCountryForGridCodeValidation"
+                    id="hospital-country-select">
+                    <option value="">Select a nation</option>
+                </select>
+                <button id="searchButtonForHospitalGridCodeValidation"
+                    class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Validate
+                    GridCode</button>
+                <div id="hospitalValidationResult" class="my-5"></div>
+            </div>
+
+            <!-- for universities -->
+            <div class="validate-hospital-grid-code-container col w-full">
+                <h2 class="py-5  text-2xl font-bold">Validate Grid Code</h2>
+
+                <input type="text" class=" block border border-black p-2"
+                    id="searchInputForUniversityGridCodeValidation"
+                    placeholder="Enter Grid code to validate" />
+                <select class="p-3 block my-3"
+                    name="selectedCountryForGridCodeValidation"
+                    id="university-country-select">
+                    <option value="">Select a nation</option>
+                </select>
+                <button id="searchButtonForUniversityGridCodeValidation"
+                    class=" rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">Validate
+                    GridCode</button>
+                <div id="universityValidationResult" class="my-5"></div>
+            </div>
         </div>
 
 
         <!-- generate distance for gridcode -->
         <div class="m-10">
+
             <h2 class="py-5  text-2xl font-bold">Generate Distance Between two
                 Grid Codes</h2>
-            <div class="block">
-                <div class="source-info">
-                    <input type="text" class=" block border border-black p-2"
-                        id="sourceGridCode"
-                        placeholder="Enter Source Grid code" />
-                    <select class="p-3 block my-3" name="sourceCountry"
-                        id="sourceCountry">
-                        <option value="">Select source nation</option>
-                    </select>
+            <div class="lg:flex w-full">
+
+                <!-- for hospitals -->
+                <div class="distance-calculator-for-hospitals col w-full">
+                    <div class="block">
+                        <div class="source-info">
+                            <input type="text"
+                                class=" block border border-black p-2"
+                                id="sourceGridCodeForHospital"
+                                placeholder="Enter Source Grid code" />
+                            <select class="p-3 block my-3" name="sourceCountry"
+                                id="sourceCountryForHospital">
+                                <option value="">Select source nation</option>
+                            </select>
+                        </div>
+
+                        <div class="destination-info my-10">
+                            <input type="text"
+                                class=" block border border-black p-2"
+                                id="destinationGridCodeForHospital"
+                                placeholder="Enter Destination Grid code" />
+                            <select class="p-3 block my-3"
+                                name="destinationCountry"
+                                id="destinationCountryForHospital">
+                                <option value="">Select destination nation
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="gridCodeDistanceGenerateBtnForHospitals"
+                        class="rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">
+                        Generate Distance
+                    </button>
+                    <div id="distanceResultForHospital" class="my-5"></div>
                 </div>
 
-                <div class="destination-info my-10">
-                    <input type="text" class=" block border border-black p-2"
-                        id="destinationGridCode"
-                        placeholder="Enter Destination Grid code" />
-                    <select class="p-3 block my-3" name="destinationCountry"
-                        id="destinationCountry">
-                        <option value="">Select destination nation</option>
-                    </select>
+                <!-- for universities -->
+                <div class="distance-calculator-for-universities col w-full">
+                    <div class="block">
+                        <div class="source-info">
+                            <input type="text"
+                                class=" block border border-black p-2"
+                                id="sourceGridCodeForUniversity"
+                                placeholder="Enter Source Grid code" />
+                            <select class="p-3 block my-3" name="sourceCountry"
+                                id="sourceCountryForUniversity">
+                                <option value="">Select source nation</option>
+                            </select>
+                        </div>
+
+                        <div class="destination-info my-10">
+                            <input type="text"
+                                class=" block border border-black p-2"
+                                id="destinationGridCodeForUniversity"
+                                placeholder="Enter Destination Grid code" />
+                            <select class="p-3 block my-3"
+                                name="destinationCountry"
+                                id="destinationCountryForUniversity">
+                                <option value="">Select destination nation
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="gridCodeDistanceGenerateBtnForUniversities"
+                        class="rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">
+                        Generate Distance
+                    </button>
+                    <div id="distanceResultForUniversity" class="my-5"></div>
                 </div>
             </div>
 
-            <button id="gridCodeDistanceGenerateBtn"
-                class="rounded cursor-pointer px-5 py-2 bg-blue-700 text-white">
-                Generate Distance
-            </button>
-            <div id="distanceResult" class="my-5"></div>
         </div>
 
 
 
         <!-- local storage container -->
-        <h1 class="mt-20 font-bold text-3xl mx-10">GridCodes Generated so far</h1>
-
-        <div id="localStorageItems" class="mb-20 mx-10 py-5"></div>
+        <!-- <h1 class="mt-20 font-bold text-3xl mx-10">GridCodes Generated so far</h1> -->
+        <!-- <div id="localStorageItems" class="mb-20 mx-10 py-5"></div> -->
         <script>
             function displayLocalStorageItems() {
                 const localStorageItemsDiv = document.getElementById("localStorageItems");
@@ -148,13 +247,9 @@
                     localStorageItemsDiv.appendChild(itemDiv);
                 }
             }
-
-            displayLocalStorageItems(); // Call the function initially
-
+            // displayLocalStorageItems(); // Call the function initially
             // Optional: Add an event listener to update the display if localStorage changes
-            window.addEventListener('storage', displayLocalStorageItems);
-
-
+            // window.addEventListener('storage', displayLocalStorageItems);
         </script>
 
     </div>

@@ -168,6 +168,28 @@ if your generated gridcode is't saved, you'll have to save it
 else it'll tell you that you already have a grid code for this location.
 
 
-
+============================================FOR UNIVERSITIES========================================
+{
+    "code": 200,
+    "message": "GridCode generated successful",
+    "data": {
+        "userId": "2B94C1D1-B2A8-4014-83A6-7EC4C7652B1D",
+        "userGridcodeId": "A9819AED-B1BF-4CAE-83D5-44B4929DA357",
+        "gridcodeId": "49E49C60-47B6-4144-BD2E-7560B96E865E",
+        "category": "Office",
+        "categoryId": "D7911B78-0A1E-409D-9888-7D01D4AE7947",
+        "status": "Active",
+        "gridCode": "aaaa-ahgves",
+        "countryCode": "ng",
+        "latitude": "10.317402",
+        "longitude": "9.818154",
+        "detail": "8R89+MC6 Shehu Azare Park, Sa'adu Zungur Rd, Yelwa 740102, Bauchi, Nigeria",
+        "totalLikes": "0",
+        "isFavorite": "0",
+        "createdDate": "2024-11-20 01:55:58.987",
+        "updatedDate": null,
+        "picture": "https://gcmgts.gridweb.net/uploads/picture/default.jpg"
+    }
+}
 
 
