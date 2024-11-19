@@ -22,11 +22,12 @@
     <div class="wrapper mb-20">
 
         <!-- gridcode generation container -->
-        <h2 class="px-5 text-2xl font-bold">Generate Grid Code</h2>
+        <h2 class="px-5 text-xl font-bold">Generate Grid Code</h2>
         <div class="data-manipulation-container lg:flex p-5 w-full mb-10">
             <!-- generate gridcode for hospital -->
             <div class="col w-full">
-                <h1>Generate grid code for a Hospital</h1>
+                <h2 class="  text-xl font-bold">For Hospitals</h2>
+
                 <select id="hospital-select" class="p-3 my-5">
                     <option value="">Select a hospital</option>
                 </select>
@@ -35,7 +36,7 @@
 
             <!-- generate gridcode for university goto app.js and uncomment the populateUniversities and the event listener-->
             <div class="col w-full">
-                <h1>Generate grid code for a University</h1>
+                <h2 class="  text-xl font-bold">For Universities</h2>
                 <select id="university-select" class="p-3 my-5">
                     <option value="">Select a university</option>
                 </select>
@@ -48,8 +49,8 @@
             <div class="lg:flex w-full p-5  mb-10">
                 <!-- hospitals -->
                 <div class="search-gridcode-for-hospitals col w-full">
-                    <h2 class="py-5  text-2xl font-bold">Search for Grid Code
-                    </h2>
+                    <h2 class="py-5  text-xl font-bold">Search for Grid Code</h2>
+                    <h2 class="  text-xl font-bold">For Hospital</h2>
 
                     <div id="data"></div>
 
@@ -68,8 +69,8 @@
 
                 <!-- universities -->
                 <div class="search-gridcode-for-universities col w-full">
-                    <h2 class="py-5  text-2xl font-bold">Search for Grid Code
-                    </h2>
+                    <h2 class="py-5  text-xl font-bold">Search for Grid Code</h2>
+                    <h2 class="  text-xl font-bold">For University</h2>
 
                     <div id="data"></div>
 
@@ -96,7 +97,8 @@
 
             <!-- for hospitals -->
             <div class="validate-hospital-grid-code-container col w-full">
-                <h2 class="py-5  text-2xl font-bold">Validate Grid Code</h2>
+                <h2 class="py-5  text-xl font-bold">Validate Grid Code</h2>
+                <h2 class="  text-xl font-bold">For Hospital</h2>
 
                 <input type="text" class=" block border border-black p-2"
                     id="searchInputForHospitalGridCodeValidation"
@@ -114,7 +116,8 @@
 
             <!-- for universities -->
             <div class="validate-hospital-grid-code-container col w-full">
-                <h2 class="py-5  text-2xl font-bold">Validate Grid Code</h2>
+                <h2 class="py-5  text-xl font-bold">Validate Grid Code</h2>
+                <h2 class="  text-xl font-bold">For University</h2>
 
                 <input type="text" class=" block border border-black p-2"
                     id="searchInputForUniversityGridCodeValidation"
@@ -135,13 +138,15 @@
         <!-- generate distance for gridcode -->
         <div class="m-10">
 
-            <h2 class="py-5  text-2xl font-bold">Generate Distance Between two
+            <h2 class="py-5  text-xl font-bold">Generate Distance Between Two
                 Grid Codes</h2>
             <div class="lg:flex w-full">
 
                 <!-- for hospitals -->
                 <div class="distance-calculator-for-hospitals col w-full">
                     <div class="block">
+                    <h2 class="  text-xl font-bold">For Hospitals</h2>
+
                         <div class="source-info">
                             <input type="text"
                                 class=" block border border-black p-2"
@@ -176,6 +181,7 @@
 
                 <!-- for universities -->
                 <div class="distance-calculator-for-universities col w-full">
+                    <h2 class="  text-xl font-bold">For Universities</h2>
                     <div class="block">
                         <div class="source-info">
                             <input type="text"
