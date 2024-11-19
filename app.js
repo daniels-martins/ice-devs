@@ -54,28 +54,28 @@ document.getElementById('searchButtonForGridCodeValidation')
 // =============================================================================
 
 // Add event listener to handle selection
-universitySelectElement.addEventListener('change', function () {
-    const selectedLocation = this.value;
-    if (selectedLocation) {
-        alert('we here')
-        // Make an API request using the selected location
-        const baseUrl = 'https://gcorea.gridweb.net';
+// universitySelectElement.addEventListener('change', function () {
+//     const selectedLocation = this.value;
+//     if (selectedLocation) {
+//         alert('we here')
+//         // Make an API request using the selected location
+//         const baseUrl = 'https://gcorea.gridweb.net';
 
-        axios.get(baseUrl + fn.routeToVerifyGridCode(), {
-            headers: {
-                'api-key': fn.getApiToken()
-            }
-        })
-            .then(function (response) {
-                // alert('fifi')
-                console.log('hello', response.data);
-            })
-            .catch(function (error) {
-                alert('an error occured')
-                console.error('Error fetching data:', error);
-            });
-    }
-});
+//         axios.get(baseUrl + fn.routeToVerifyGridCode(), {
+//             headers: {
+//                 'api-key': fn.getApiToken()
+//             }
+//         })
+//             .then(function (response) {
+//                 // alert('fifi')
+//                 console.log('hello', response.data);
+//             })
+//             .catch(function (error) {
+//                 alert('an error occured')
+//                 console.error('Error fetching data:', error);
+//             });
+//     }
+// });
 
 
 
