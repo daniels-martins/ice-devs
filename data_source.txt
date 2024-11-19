@@ -161,3 +161,13 @@ api stored grid code response
 
 
 
+when you generate a gridcode, it's saved on your user authentication
+so you must also save it. saving it is what validates it.
+
+if your generated gridcode is't saved, you'll have to save it
+else it'll tell you that you already have a grid code for this location.
+
+
+
+
+

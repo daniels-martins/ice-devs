@@ -5,10 +5,10 @@ import { universities, hospitals, categories, countries } from "./dictionary.js"
 import * as fn from './functions.js';
 import * as listener from './listeners.js';
 
-
+// This is for clearing out local storage
 // Example usage:
 // const keysToPreserve = ['user', 'theme', 'preferences'];
-fn.deleteUnmatchedKeysInLocalStorage(keysToPreserve);
+// fn.deleteUnmatchedKeysInLocalStorage(keysToPreserve);
 
 const hospitalSelectElement = document.getElementById('hospital-select');
 const universitySelectElement = document.getElementById('university-select');
@@ -243,6 +243,8 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
                         })
                         .catch(function (error) {
                             alert('we saw an error')
+                            hospitalGridCodeContainer.innerHTML = error.response.data.message;
+
                             console.error('Error fetching data:', error);
                             console.log('url', baseUrl + fn.routeToSaveGridCode(), 'valueInStorage', valueInStorage)
                         });

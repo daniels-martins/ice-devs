@@ -83,20 +83,6 @@ export function getLatLongDeviation(latitude) {
     }
 }
 
-export function deleteUnmatchedKeysInLocalStorage(keysToKeep) {
-    // Convert the array of keys to a Set for faster lookups.
-    const keepSet = new Set(keysToKeep);
-
-    // Get all keys currently in localStorage.
-    const allKeys = Object.keys(localStorage);
-
-    // Iterate through all keys and remove those not in the keep set.
-    for (const key of allKeys) {
-        if (!keepSet.has(key)) {
-            localStorage.removeItem(key);
-        }
-    }
-}
 
 
 

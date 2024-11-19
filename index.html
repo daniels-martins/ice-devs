@@ -27,7 +27,7 @@
             <!-- generate gridcode for hospital -->
             <div class="">
                 <h1>Generate grid code for a Hospital</h1>
-                <select id="hospital-select" class="p-3">
+                <select id="hospital-select" class="p-3 my-5">
                     <option value="">Select a hospital</option>
                 </select>
                 <div id="hospital-generate-grid-code-results-container"></div>
@@ -111,6 +111,51 @@
             </button>
             <div id="distanceResult" class="my-5"></div>
         </div>
+
+
+
+        <!-- local storage container -->
+        <h1 class="mt-20 font-bold text-3xl mx-10">GridCodes Generated so far</h1>
+
+        <div id="localStorageItems" class="mb-20 mx-10 py-5"></div>
+        <script>
+            function displayLocalStorageItems() {
+                const localStorageItemsDiv = document.getElementById("localStorageItems");
+                localStorageItemsDiv.innerHTML = ''; // Clear previous content
+
+                if (localStorage.length === 0) {
+                    localStorageItemsDiv.textContent = "No grid codes generated yet.";
+                    return;
+                }
+
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const value = localStorage.getItem(key);
+
+                    const itemDiv = document.createElement("div");
+                    itemDiv.classList.add("item");
+
+                    const keySpan = document.createElement("span");
+                    keySpan.classList.add("key");
+                    keySpan.textContent = `${key}: `;
+
+                    const valueSpan = document.createElement("span");
+                    valueSpan.textContent = value;
+
+
+                    itemDiv.appendChild(keySpan);
+                    itemDiv.appendChild(valueSpan);
+                    localStorageItemsDiv.appendChild(itemDiv);
+                }
+            }
+
+            displayLocalStorageItems(); // Call the function initially
+
+            // Optional: Add an event listener to update the display if localStorage changes
+            window.addEventListener('storage', displayLocalStorageItems);
+
+
+        </script>
 
     </div>
     <script type="module" src="app.js"></script>
