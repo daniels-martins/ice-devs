@@ -1,5 +1,6 @@
 'use strict';
 // localStorage.clear();
+import axios from 'https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/esm/axios.js'; // Even though it's from the CDN, import it as a module
 
 import { universities, hospitals, categories, countries } from "./dictionary.js";
 import * as fn from './functions.js';
@@ -7,11 +8,17 @@ import * as listener from './listeners.js';
 
 const hospitalSelectElement = document.getElementById('hospital-select');
 const universitySelectElement = document.getElementById('university-select');
+const countrySelectElement = document.getElementById('country-select');
 
 // handle default data for universities dropdown
 universities.forEach(university => fn.populateUniversities(university, universitySelectElement));
 // handle default data for hospitals dropdown
 hospitals.forEach(hospital => fn.populateHospitals(hospital, hospitalSelectElement));
+
+// handle default data for Countries dropdown
+countries.forEach(country => fn.populateCountries(country, countrySelectElement));
+
+
 
 // =================EVENT LISTENERS========================
 
@@ -24,8 +31,15 @@ hospitalSelectElement.addEventListener('change', function () {
     handleGridCodeGenerationForSelectedHospital(selectedLocation);
 });
 
-// Event listener for the search button
-document.getElementById('searchButton').addEventListener('click', () => listener.handleClickEventOnSearchButton());
+// Event listener for the gridcode search button
+document.getElementById('searchButton')
+    .addEventListener('click', () => listener.handleClickEventOnSearchButton());
+
+
+// Event listener for the gridcode validate button
+document.getElementById('searchButtonForGridCodeValidation')
+    .addEventListener('click', () => listener.handleValidationOfGridCode());
+
 
 
 
@@ -231,3 +245,8 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
             });
     }
 }
+
+
+
+
+export { axios }; // Export axios

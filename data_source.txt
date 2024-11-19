@@ -12,3 +12,105 @@ https://docs.google.com/document/d/1bKFDlgjuuPWQxrQCOaNSn9Wdpa2CfumRj605-VJ2lLs/
 postman: api
 https://ice-devs.postman.co/workspace/Ice-devs-Workspace~61062deb-ed69-4591-8d15-c37abe77aa49/request/39616956-bc1e2240-7368-42a2-a967-a780e7735865?tab=body
 https://ice-devs.postman.co/workspace/Ice-devs-Workspace~61062deb-ed69-4591-8d15-c37abe77aa49/documentation/39616956-8a6339c6-fe1f-49e6-9203-e70992efa520?entity=request-677908cb-21c5-427a-b00d-def62fd1a2d4
+
+Grid code that was saved locally
+keyInStorage: 7.06517_11.93535
+data : {
+    "gridcode": "aaaa-ahgvab",
+    "address": "W3P8+43 Yankuzau, Nigeria",
+    "countryCode": "NG",
+    "categoryId": "D7911B78-0A1E-409D-9888-7D01D4AE7947",
+    "titleDescription": "W3P8+43 Yankuzau, Nigeria",
+    "lat": "11.93535",
+    "latA": "11.93535",
+    "latB": 11.93536,
+    "latC": 11.93537,
+    "long": "7.06517",
+    "longA": "7.06517",
+    "longB": 7.06518,
+    "longC": 7.06519,
+    "generateAction": "NONE",
+    "gridcode2": "aaaa-ahgvac"
+}
+
+
+response from a 'successfully api_saved grid code'
+{
+    "code": 200,
+    "message": "GridCode generated successful",
+    "data": {
+        "userId": "2B94C1D1-B2A8-4014-83A6-7EC4C7652B1D",
+        "userGridcodeId": "09BC63DB-E645-47F1-9079-D063DE20A536",
+        "gridcodeId": "3509EFC4-3D90-42E1-BF7A-856E77967DEF",
+        "category": "Office",
+        "categoryId": "D7911B78-0A1E-409D-9888-7D01D4AE7947",
+        "status": "Active",
+        "gridCode": "aaaa-ahgvab",
+        "countryCode": "ng",
+        "latitude": "11.93536",
+        "longitude": "7.06518",
+        "detail": "W3P8+43 Yankuzau, Nigeria",
+        "totalLikes": "0",
+        "isFavorite": "0",
+        "createdDate": "2024-11-19 01:54:48.043",
+        "updatedDate": null,
+        "picture": "https://gcmgts.gridweb.net/uploads/picture/default.jpg"
+    }
+}
+
+verified gridcode via api
+//a response from a verified gridcode via api
+{
+    "code": 200,
+    "message": "Verified",
+    "data": {
+        "gridCode": "aaaa-ahgvab",
+        "countryCode": "NG",
+        "isValid": true
+    }
+}
+
+
+
+
+=======================================
+2. locally stored gridcode
+
+{
+    "gridcode": "aaaa-ahgvdm",
+    "address": "QQHM+JJJ, Zurmi 631101, Zamfara, Nigeria",
+    "countryCode": "NG",
+    "categoryId": "D7911B78-0A1E-409D-9888-7D01D4AE7947",
+    "titleDescription": "QQHM+JJJ, Zurmi 631101, Zamfara, Nigeria",
+    "lat": "12.77914",
+    "latA": "12.77914",
+    "latB": 12.77915,
+    "latC": 12.77916,
+    "long": "6.78393",
+    "longA": "6.78393",
+    "longB": 6.78394,
+    "longC": 6.78395,
+    "generateAction": "NONE",
+    "gridcode2": "aaaa-ahgvdn"
+}
+
+
+api stored grid code response
+{
+    "code": 200,
+    "message": "Verified",
+    "data": {
+        "gridCode": "aaaa-ahgvdm",
+        "countryCode": "NG",
+        "isValid": true
+    }
+}
+
+
+
+
+
+
+
+
+

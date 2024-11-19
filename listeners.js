@@ -1,5 +1,4 @@
 import * as fn from './functions.js';
-
 /**
  * WHERE searchFor is a gridcode
  * @return [type]
@@ -15,9 +14,8 @@ export function handleClickEventOnSearchButton() {
     };
 
     // search for the item in the API
-  
-    // searching for an item in the localStorage : extract to helpers
 
+    // searching for an item in the localStorage : extract to helpers
     for (let i = 0; i < localStorage.length; i++) {
         alert('fiji')
 
@@ -27,7 +25,7 @@ export function handleClickEventOnSearchButton() {
 
         if (valueInStorage.gridcode !== searchFor) {
             continue;
-        }else{
+        } else {
             alert('fiji')
             alert(searchFor)
         }
@@ -40,9 +38,20 @@ export function handleClickEventOnSearchButton() {
 
     const resultDiv = document.getElementById('searchResult');
     resultDiv.innerHTML = ''; // Clear previous results
-//     resultDiv.innerHTML += `<p>
-//     Result: <br> 
-//     GridCode :   ${associatedResult.gridcode} <br>
-//     Address : ${associatedResult.address}
-// </p>`;
+    //     resultDiv.innerHTML += `<p>
+    //     Result: <br> 
+    //     GridCode :   ${associatedResult.gridcode} <br>
+    //     Address : ${associatedResult.address}
+    // </p>`;
+}
+
+export function handleValidationOfGridCode() {
+    alert('validate');
+    let inputedGridcode = document.getElementById('searchInputForGridCodeValidation');
+    let selectedCountry = document.getElementById('country-select');
+    let gridcode = inputedGridcode.value;
+    let countryCode = selectedCountry.value;
+    console.log('about to validate', gridcode, countryCode);
+    // return 0;
+    return fn.validateGridCodeFromApi(gridcode, countryCode)
 }

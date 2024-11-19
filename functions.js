@@ -1,6 +1,35 @@
+import { axios } from './app.js'; // Assuming app.js is in the same directory
 import { categories } from "./dictionary.js";
 
+export function validateGridCodeFromApi(gridcode, countryCode = 'NG') {
+    let validationResultElement = document.getElementById('validationResult');
 
+    // Make an API request using the selected location (gridcode)
+    const baseUrl = 'https://gcorea.gridweb.net';
+
+    axios.get(baseUrl + routeToVerifyGridCode(gridcode, countryCode), {
+        headers: {
+            'api-key': getApiToken()
+        }
+    })
+        .then(function (response) {
+            let resBody = response.data;
+            if (resBody.code == 200 && resBody.message == 'Verified') {
+                console.log('hello', response.data);
+                let verifiedGridCode = resBody.data.gridCode;
+                let verifiedcountryCode = resBody.data.countryCode;
+                let verifiedValidity = resBody.data.isValid;
+
+                // get a container to display the formatted validation message
+                validationResultElement.innerHTML =
+                    `Success: ${verifiedGridCode} for ${verifiedcountryCode} is valid 👍`;
+            }
+        })
+        .catch(function (error) {
+            alert('an error occured')
+            console.error('Error fetching data:', error);
+        });
+}
 
 export function getLatLongDeviation(latitude) {
     // Convert the latitude string to a number.  This handles potential leading/trailing whitespace.
@@ -67,6 +96,13 @@ export function populateHospitals(hospital, hospitalSelectElement) {
 }
 
 
+export function populateCountries(country, countrySelectElement) {
+    const option = document.createElement('option');
+    option.value = country["countryCode"]; // eg 'NG' or 'RW'
+    option.textContent = country["country"]; //country name
+    countrySelectElement.appendChild(option);
+}
+
 export function getCountryCode(country, data) {
     const foundCountry = data.find(item => item.country === country);
     return foundCountry ? foundCountry.countryCode : null; // Return null if not found
@@ -110,7 +146,7 @@ export function getGridCodeCategory(searchTerm = null) {
     return foundCategory.categoryId ?? null; //null coalescing
 }
 
-export function routeToSaveGridCode(){
+export function routeToSaveGridCode() {
     return '/gridcode/api/store';
 }
 export function routeToVerifyGridCode(gridCode = 'aaaa-ahgumc', countryCode = 'in') {
