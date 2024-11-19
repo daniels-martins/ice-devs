@@ -149,9 +149,10 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
                     console.log('resbody', resBody);
 
                     let hospitalGridCodeElem = document.createElement('div');
-                    hospitalGridCodeElem.textContent = `Grid Code : ${resBody.data.gridcode}`;
                     let hospitalLocationInfoElem = document.createElement('div');
-                    hospitalLocationInfoElem.textContent = `Address :  ${resBody.data.address}`
+                    // hospitalGridCodeElem.textContent = `Grid Code : ${resBody.data.gridcode}`;
+                    // hospitalLocationInfoElem.textContent = `Address :  ${resBody.data.address}`
+                    hospitalGridCodeElem.textContent = `Attempting to save new grid code...`;
 
                     hospitalGridCodeContainer.appendChild(hospitalGridCodeElem);
                     hospitalGridCodeContainer.appendChild(hospitalLocationInfoElem);
@@ -160,28 +161,6 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
                     let keyInStorage = `${data.long}_${data.lat}`;
                     console.log('OUR DATA', data, 'resBody', resBody);
                     // return 0;
-
-                    // using the data from the request to test and it worked
-                    let valueInStorageRaw = {
-                        gridcode: 'aaac-aabl' || resBody.data.gridcode,
-                        address: '23st, ava kigali rwanda' || resBody.data.address,
-                        countryCode: 'RW' || fn.getCountryCode(resBody.data.country, countries),
-                        categoryId: 'EA6955C1-153D-4AC8-AAD2-A37E29189920' || fn.getGridCodeCategory('office'),
-                        titleDescription: '23st, ava kigali rwanda' || resBody.data.address,
-
-                        lat: '23.019622957719968' || data.lat,  //+0
-                        latA: '23.019622957719968' || data.lat,  //+0
-                        latB: '23.019622957719969' || fn.getLatLongDeviation(data.lat), //+2 
-                        latC: '23.019622957719970' || fn.getLatLongDeviation(fn.getLatLongDeviation(data.lat)),  //+4
-
-                        long: '72.5112663229025' || data.long,  //+0
-                        longA: '72.5112663229025' || data.long,  //+0
-                        longB: '72.5112663229026' || fn.getLatLongDeviation(data.long), //+2 
-                        longC: '72.5112663229029' || fn.getLatLongDeviation(fn.getLatLongDeviation(data.long)), //+4
-
-                        generateAction: 'NONE'
-                    }
-
 
                     let valueInStorage = {
                         gridcode: resBody.data.gridcode,
@@ -201,7 +180,7 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
                         longB: fn.getLatLongDeviation(data.long), //+1
                         longC: fn.getLatLongDeviation(fn.getLatLongDeviation(data.long)), //+2
 
-                        generateAction: 'NONE'
+                        generateAction: 'USE_EXISTING'
                     }
 
                     let jsonValueInStorage = JSON.stringify(valueInStorage);
@@ -210,43 +189,42 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
 
                     // generate the second grid code
                     // Nested Axios request
-                    axios.post(baseUrl + fn.routeToGenerateGridCode(), data, { headers: headers })
-                        .then(function (nestedResponse) {
-                            const nestedResBody = nestedResponse.data;
-                            if (nestedResBody.code == '200' && nestedResBody.message == 'Gridcode generated successful') {
-                                // Store the result of the nested request in localStorage
-                                valueInStorage.gridcode2 = nestedResBody.data.gridcode;
-                                localStorage.setItem(keyInStorage, JSON.stringify(valueInStorage));
-                                console.log(
-                                    'updated girdcodes for this location :' + resBody.data.address,
-                                    JSON.parse(localStorage.getItem(keyInStorage))
-                                );
+                    // axios.post(baseUrl + fn.routeToGenerateGridCode(), data, { headers: headers })
+                    //     .then(function (nestedResponse) {
+                    //         const nestedResBody = nestedResponse.data;
+                    //         if (nestedResBody.code == '200' && nestedResBody.message == 'Gridcode generated successful') {
+                    //             // Store the result of the nested request in localStorage
+                    //             valueInStorage.gridcode2 = nestedResBody.data.gridcode;
+                    //             localStorage.setItem(keyInStorage, JSON.stringify(valueInStorage));
+                    //             console.log(
+                    //                 'updated girdcodes for this location :' + resBody.data.address,
+                    //                 JSON.parse(localStorage.getItem(keyInStorage))
+                    //             );
 
-                            }
-                        })
-                        .catch(function (nestedError) {
-                            console.error('Error in nested Axios request:', nestedError);
-                        });
+                    //         }
+                    //     })
+                    //     .catch(function (nestedError) {
+                    //         console.error('Error in nested Axios request:', nestedError);
+                    //     });
 
-                    const headersNew = {
-                        'api-key': fn.getApiToken(),
-                        'Content-Type': 'application/json', // For JSON data
-                        'Accept': '*/*',
-                    };
-                    console.log('we sent', 'valueInStorage', valueInStorage);
+                    // const headersNew = {
+                    //     'api-key': fn.getApiToken(),
+                    //     'Content-Type': 'application/json', // For JSON data
+                    //     'Accept': '*/*',
+                    // };
+                    // console.log('we sent', 'valueInStorage', valueInStorage);
 
                     // Save gridcode data to Api
-                    axios.post(baseUrl + fn.routeToSaveGridCode(), valueInStorage, { headers: headersNew })
+                    axios.post(baseUrl + fn.routeToSaveGridCode(), valueInStorage, { headers: headers })
                         .then(response => {
                             let resBody = response.data;
                             console.log('we found', resBody);
                         })
                         .catch(function (error) {
-                            alert('we saw an error')
                             hospitalGridCodeContainer.innerHTML = error.response.data.message;
-
-                            console.error('Error fetching data:', error);
-                            console.log('url', baseUrl + fn.routeToSaveGridCode(), 'valueInStorage', valueInStorage)
+                            console.log('we saw an error', error.response.data.message)
+                            // console.error('Error fetching data:', error);
+                            // console.log('url', baseUrl + fn.routeToSaveGridCode(), 'valueInStorage', valueInStorage)
                         });
 
                     // Retrieve data from Local Storage
