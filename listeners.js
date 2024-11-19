@@ -7,7 +7,7 @@ import axios from 'https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/esm/axios.
 export function handleClickEventOnSearchButton() {
     const searchFor = document.getElementById('searchInput').value;
     let associatedResult = null;
-    alert('searching api for grid code : ' + searchFor);
+    // alert('searching api for grid code : ' + searchFor);
     // return 0;
     // searching for an item in the localStorage : extract to helpers
     // for (let i = 0; i < localStorage.length; i++) {
@@ -44,7 +44,6 @@ export function handleClickEventOnSearchButton() {
     axios.post(baseUrl + fn.routeToSearchGridCode(), data, { headers: headers })
         .then(function (response) {
             const resBody = response.data;
-            alert('we good')
             console.log(resBody, resBody.data);
             if (resBody.code == '200' && resBody.message == "Retrieved successful") {
                 const foundGridCodeInfo = resBody.data.details;
@@ -113,7 +112,7 @@ export function handleGenerateDistanceButton() {
                 <b>Total distance from point A:</b>  ${foundGridCodeDistance.sourceGridCode.address}<br> <br> 
                 <b>To Point B:</b>  ${foundGridCodeDistance.destinationGridCode.address}<br> <br> 
                 Is approximately:  <b> ${foundGridCodeDistance.distanceKm} km</b> <br> 
-                and the estimated Travel Time : <b> ${foundGridCodeDistance.estimatedTravelTime} minutes</b> <br> 
+                and the estimated Travel Time : <b> ${foundGridCodeDistance.estimatedTravelTime}</b> <br> 
                 </p>`;
                 // final state after processing is concluded.
                 distanceResultElement.innerHTML = result;
@@ -136,7 +135,7 @@ export function handleValidationOfGridCode() {
     // return fn.validateGridCodeFromApi(gridcode, countryCode)
     let validationResultElement = document.getElementById('validationResult');
     // default state once processing begins
-    validationResultElement.innerHTML = 'Validating Grid code. please wait...';
+    validationResultElement.innerHTML = `Validating Grid code ${gridcode} . please wait...`;
 
     // Make an API request using the selected location (gridcode)
     const baseUrl = 'https://gcorea.gridweb.net';
