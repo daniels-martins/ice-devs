@@ -153,6 +153,9 @@ export function routeToVerifyGridCode(gridCode = 'aaaa-ahgumc', countryCode = 'i
     return `/external/api/verify-gridcode?gridCode=${gridCode}&countryCode=${countryCode}`;
 }
 
+export function routeToSearchGridCode(){
+    return '/external/api/search-gridcodes';
+}
 export function routeToGenerateGridCode() {
     return '/gridcode/api/generate'
 }

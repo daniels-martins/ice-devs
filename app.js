@@ -108,9 +108,11 @@ function handleGridCodeGenerationForSelectedHospital(selectedLocation) {
     if (selectedLocation) {
         // Make an API request using the selected location
         const baseUrl = 'https://gcorea.gridweb.net';
-        const apiToken = fn.getApiToken();
+
         const headers = {
-            'api-key': fn.getApiToken()
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
+            'api-key': fn.getApiToken(),
         };
         const data = {
             countryCode: 'NG',

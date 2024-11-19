@@ -107,7 +107,25 @@ api stored grid code response
 }
 
 
+================GRID SEARCH RESULT FROM API================
 
+{
+    "code": 200,
+    "message": "Retrieved successful",
+    "data": {
+        "details": [
+            {
+                "gridCode": "aaaa-ahgvab",
+                "lat": "11.93536",
+                "lng": "7.06518",
+                "country": "Nigeria",
+                "city": "Tsafe",
+                "state": "Zamfara",
+                "address": "W3P8+43 Yankuzau, Nigeria"
+            }
+        ]
+    }
+}
 
 
 
