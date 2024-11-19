@@ -1,10 +1,14 @@
 'use strict';
 // localStorage.clear();
 import axios from 'https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/esm/axios.js'; // Even though it's from the CDN, import it as a module
-
 import { universities, hospitals, categories, countries } from "./dictionary.js";
 import * as fn from './functions.js';
 import * as listener from './listeners.js';
+
+
+// Example usage:
+// const keysToPreserve = ['user', 'theme', 'preferences'];
+fn.deleteUnmatchedKeysInLocalStorage(keysToPreserve);
 
 const hospitalSelectElement = document.getElementById('hospital-select');
 const universitySelectElement = document.getElementById('university-select');

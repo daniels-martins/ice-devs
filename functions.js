@@ -1,6 +1,21 @@
 import { axios } from './app.js'; // Assuming app.js is in the same directory
 import { categories } from "./dictionary.js";
 
+export function deleteUnmatchedKeysInLocalStorage(keysToKeep) {
+    // Convert the array of keys to a Set for faster lookups.
+    const keepSet = new Set(keysToKeep);
+
+    // Get all keys currently in localStorage.
+    const allKeys = Object.keys(localStorage);
+
+    // Iterate through all keys and remove those not in the keep set.
+    for (const key of allKeys) {
+        if (!keepSet.has(key)) {
+            localStorage.removeItem(key);
+        }
+    }
+}
+
 export function validateGridCodeFromApi(gridcode, countryCode = 'NG') {
     let validationResultElement = document.getElementById('validationResult');
 
@@ -67,6 +82,22 @@ export function getLatLongDeviation(latitude) {
         return latNum + 0.02;
     }
 }
+
+export function deleteUnmatchedKeysInLocalStorage(keysToKeep) {
+    // Convert the array of keys to a Set for faster lookups.
+    const keepSet = new Set(keysToKeep);
+
+    // Get all keys currently in localStorage.
+    const allKeys = Object.keys(localStorage);
+
+    // Iterate through all keys and remove those not in the keep set.
+    for (const key of allKeys) {
+        if (!keepSet.has(key)) {
+            localStorage.removeItem(key);
+        }
+    }
+}
+
 
 
 //   // Test cases
@@ -160,7 +191,7 @@ export function routeToVerifyGridCode(gridCode = 'aaaa-ahgumc', countryCode = 'i
     return `/external/api/verify-gridcode?gridCode=${gridCode}&countryCode=${countryCode}`;
 }
 
-export function routeToSearchGridCode(){
+export function routeToSearchGridCode() {
     return '/external/api/search-gridcodes';
 }
 
