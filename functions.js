@@ -1,6 +1,47 @@
 import { axios } from './app.js'; // Assuming app.js is in the same directory
 import { categories } from "./dictionary.js";
 
+export function name(params) {
+    function createInputWithButton() {
+        const container = document.getElementById('container');
+      
+        // Create the input element
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Enter text...';
+        input.classList.add(
+          'border',      // Add a border
+          'border-gray-300', // Set border color
+          'p-2',         // Add padding
+          'rounded-md',   // Round the corners
+          'focus:outline-none', // Remove default focus outline
+          'focus:ring-2', // Add a ring on focus
+          'focus:ring-blue-300' // Set ring color
+        );
+      
+      
+        // Create the button element
+        const button = document.createElement('button');
+        button.textContent = 'Save grid code';
+        button.classList.add(
+          'bg-blue-500', // Set background color
+          'hover:bg-blue-700', // Darken on hover
+          'text-white',     // Set text color
+          'font-bold',     // Make text bold
+          'py-2',         // Add vertical padding
+          'px-4',         // Add horizontal padding
+          'rounded-md',   // Round the corners
+          'ml-2'          // Add margin to the left
+        );
+      
+        // Append the elements to the container
+        container.appendChild(input);
+        container.appendChild(button);
+      }
+      
+    //   createInputWithButton();
+}
+
 export function deleteUnmatchedKeysInLocalStorage(keysToKeep) {
     // Convert the array of keys to a Set for faster lookups.
     const keepSet = new Set(keysToKeep);
